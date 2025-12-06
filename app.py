@@ -6,7 +6,9 @@ import time
 st.title("🤖 AI Buddy - Rule Based Consultation Chatbot")
 
 # Greeting based on Time
-if name:
+name = st.text_input("Enter your name:")
+
+if name.strip() != "":
     presenthour = datetime.datetime.now().hour
     if 5 <= presenthour < 12:
         st.success(f"🌞 Good Morning {name}!")
@@ -15,7 +17,8 @@ if name:
     elif 17 <= presenthour < 20:
         st.warning(f"🌆 Good Evening {name}!")
     else:
-        st.markdown(f"Hello {name}! Have a peaceful night 🌙😊")
+        st.markdown(f"🌙 Hello {name}! Have a peaceful night 😊")
+
 
 
 st.write("You can chat with me below 👇 (type 'bye' to stop)")
@@ -84,5 +87,6 @@ for sender, msg in st.session_state.messages:
         st.markdown(f"**🧑 {sender}:** {msg}")
     else:
         st.markdown(f"**🤖 {sender}:** {msg}")
+
 
 
