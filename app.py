@@ -14,13 +14,13 @@ if name.strip() != "":
     presenthour = datetime.datetime.now(tz).hour
 
     if 5 <= presenthour < 12:
-        st.success(f"🌞 Good Morning {name}!")
+        st.markdown(f"🌞 Good Morning {name}!")
     elif 12 <= presenthour < 17:
-        st.info(f"🌤️ Good Afternoon {name}!")
+        st.markdown(f"🌤️ Good Afternoon {name}!")
     elif 17 <= presenthour < 20:
-        st.warning(f"🌆 Good Evening {name}!")
+        st.markdown(f"🌆 Good Evening {name}!")
     else:
-        st.markdown(f"🌙 Hello {name}! Have a peaceful night 😊")
+        st.markdown(f"Hello {name}! Have a peaceful night 🌙😊")
 
 
 
@@ -91,6 +91,7 @@ for sender, msg in st.session_state.messages:
         st.markdown(f"**🧑 {sender}:** {msg}")
     else:
         st.markdown(f"**🤖 {sender}:** {msg}")
+
 
 
 
