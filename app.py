@@ -3,7 +3,7 @@ import datetime
 import time
 import pytz
 # Title
-st.title("🤖 AI Buddy - Rule Based Consultation Chatbot")
+st.title("🤖 AI Buddy - Rule Based Generalised Consultation Chatbot")
 
 # Greeting based on Time
 
@@ -91,6 +91,7 @@ for sender, msg in st.session_state.messages:
         st.markdown(f"**🧑 {sender}:** {msg}")
     else:
         st.markdown(f"**🤖 {sender}:** {msg}")
+
 
 
 
