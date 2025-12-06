@@ -1,15 +1,18 @@
 import streamlit as st # type: ignore
 import datetime
 import time
-
+import pytz
 # Title
 st.title("🤖 AI Buddy - Rule Based Consultation Chatbot")
 
 # Greeting based on Time
+
 name = st.text_input("Enter your name:")
 
 if name.strip() != "":
-    presenthour = datetime.datetime.now().hour
+    tz = pytz.timezone("Asia/Kolkata")  # Set to your local timezone
+    presenthour = datetime.datetime.now(tz).hour
+
     if 5 <= presenthour < 12:
         st.success(f"🌞 Good Morning {name}!")
     elif 12 <= presenthour < 17:
@@ -18,6 +21,7 @@ if name.strip() != "":
         st.warning(f"🌆 Good Evening {name}!")
     else:
         st.markdown(f"🌙 Hello {name}! Have a peaceful night 😊")
+
 
 
 
@@ -87,6 +91,7 @@ for sender, msg in st.session_state.messages:
         st.markdown(f"**🧑 {sender}:** {msg}")
     else:
         st.markdown(f"**🤖 {sender}:** {msg}")
+
 
 
 
